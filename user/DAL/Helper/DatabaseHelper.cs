@@ -26,7 +26,7 @@ namespace DAL.Helper
                     sqlConnection = new SqlConnection(_ConnectionString);
                 if (sqlConnection.State != ConnectionState.Open)
                     sqlConnection.Open();
-                return "";
+                return string.Empty;
             }
             catch (Exception ex)
             {
@@ -40,7 +40,7 @@ namespace DAL.Helper
             {
                 if (sqlConnection != null && sqlConnection.State != ConnectionState.Closed)
                     sqlConnection.Close();
-                return "";
+                return string.Empty;
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace DAL.Helper
 
         public string ExecuteNonQuery(string strquery)
         {
-            string msgError = "";
+            string msgError = string.Empty;
             try
             {
                 OpenConnection();
@@ -78,7 +78,7 @@ namespace DAL.Helper
                 {
                     result = sqlCommand.ExecuteScalar();
                 }
-                msgError = "";
+                msgError = string.Empty;
             }
             catch (Exception ex)
             {
@@ -93,7 +93,7 @@ namespace DAL.Helper
 
         public DataTable ExecuteQueryToDataTable(string strquery, out string msgError)
         {
-            msgError = "";
+            msgError = string.Empty;
             var result = new DataTable();
             try
             {
@@ -114,7 +114,7 @@ namespace DAL.Helper
 
         public string ExecuteProcedure(string sprocedureName, params object[] paramObjects)
         {
-            string result = "";
+            string result = string.Empty;
             try
             {
                 using var sqlConnection = new SqlConnection(_ConnectionString);
@@ -203,10 +203,9 @@ namespace DAL.Helper
 
         public object ExecuteScalarProcedure(out string msgError, string sprocedureName, params object[] paramObjects)
         {
-            msgError = "";
+            msgError = string.Empty;
             object result = null;
             SqlConnection connection = new SqlConnection(_ConnectionString);
-
             try
             {
                 SqlCommand cmd = new SqlCommand { CommandType = CommandType.StoredProcedure, CommandText = sprocedureName };
@@ -347,7 +346,7 @@ namespace DAL.Helper
                 cmd.Dispose();
                 ad.Dispose();
                 connection.Dispose();
-                msgError = "";
+                msgError = string.Empty;
             }
             catch (Exception exception)
             {
@@ -394,7 +393,7 @@ namespace DAL.Helper
                 cmd.Dispose();
                 ad.Dispose();
                 connection.Dispose();
-                msgError = "";
+                msgError = string.Empty;
             }
             catch (Exception exception)
             {
@@ -406,7 +405,7 @@ namespace DAL.Helper
         }
         public string ExecuteProcedure(SqlConnection npgsqlConnection, string sprocedureName, params object[] paramObjects)
         {
-            string result = "";
+            string result = string.Empty;
             try
             {
                 SqlCommand cmd = new SqlCommand { CommandType = CommandType.StoredProcedure, CommandText = sprocedureName };
@@ -493,7 +492,7 @@ namespace DAL.Helper
                         result.Add(sqlParameter.Value);
 
                 cmd.Dispose();
-                msgError = "";
+                msgError = string.Empty;
             }
             catch (Exception exception)
             {

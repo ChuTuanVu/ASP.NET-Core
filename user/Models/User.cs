@@ -1,14 +1,25 @@
-﻿public class User
+﻿using System.Text.Json.Serialization;
+
+public class User
 {
-    public string UserId { get; set; }
-    public string UserName { get; set; }
-    public string Password { get; set; }
-    public int RoleId { get; set; } = 1;
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Phone { get; set; }
-    public string ImgUrl { get; set; }
-    public string Address { get; set; }
-    public DateTime? DateOfBirth { get; set; }
-    public string Token { get; set; }
+    [JsonIgnore]
+    public string userid { get; set; }
+    public string username { get; set; }
+    public string password { get; set; }
+    [JsonIgnore]
+    public int roleid { get; set; } = 1;
+    public string name { get; set; }
+    public string email { get; set; }
+    public string phone { get; set; }
+    public string imgurl { get; set; }
+    public string address { get; set; }
+    public DateTime? dateofbirth { get; set; }
+    [JsonIgnore]
+    public string token { get; set; }
+}
+public class UserUpdate : User
+{
+    public new string userid { get; set; }
+    [JsonIgnore]
+    public new string username { get; set; }
 }
