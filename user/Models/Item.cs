@@ -2,15 +2,13 @@
 {
     public class Item
     {
-        public string ItemId { get; set; }
-        public string ItemName { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
-        public string CategoryId { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public Category Category { get; set; }
-        public List<BillDetail> BillDetails { get; set; }
+        public string itemid { get; set; }
+        public string itemname { get; set; }
+        public string description { get; set; }
+        public decimal price { get; set; }
+        public int stock { get; set; }
+        public string categoryid { get; set; }
+        public DateTime createdtime { get; set; }
+        public DateTime? updatedtime { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using Models;
 
 namespace API.Controllers
 {
-
     public class userController : Controller
     {
         private IUserBusiness _userBusiness;
